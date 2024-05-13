@@ -30,10 +30,13 @@
     - Recreate: strategi dimana semua pods yang ada harus diterminate terlbeih dahulu sebelum versi lebih baru dibuat. Akibatnya akan ada waktu downtime ketika proses update. Biasanya strategi ini dipakai ketika aplikasi kita tidak dapat menjalankan pod dengan versi lama dan baru dalam waktu yang sama.
 
 2. **Try deploying the Spring Petclinic REST using Recreate deployment strategy and document your attempt.**
-Ya, saya berhasil menggunakan menerapkan Recreate deployment strategy dengan mengikuti tutorial https://dev.to/cloudskills/kubernetes-deployment-strategy-recreate-3kgn bagian manual recreate deployment.
+
+    Ya, saya berhasil menggunakan menerapkan Recreate deployment strategy dengan mengikuti tutorial https://dev.to/cloudskills/kubernetes-deployment-strategy-recreate-3kgn bagian manual recreate deployment. Pertama saya menjalankan `kubectl edit deployments spring-petclinic-rest` kemudian mengedit versi dari file teks yang keluar. Kemudian, secara otomatis kubernetes akan menerapkan Recreate deployment strategy.
 
 3. **Prepare different manifest files for executing Recreate deployment strategy.**
-
+    
+    File tersebut sudah saya lampirkan pada `deploymentrecreate.yaml`.
 
 4. **What do you think are the benefits of using Kubernetes manifest files? Recall your experience in deploying the app manually and compare it to your experience when deploying the same app by applying the manifest files (i.e., invoking `kubectl apply -f` command) to the cluster.**
-5. **(Optional) Do the same tutorial steps, but on a managed Kubernetes cluster (e.g., GCP). You need to provision a Kubernetes cluster on Google Cloud Platform. Then, re-run the tutorial steps (Hello Minikube and Rolling Update) on the remote cluster. Document your attempt and highlight the differences and any issues you encountered.**
+    - Manifest files menjelaskan state deployment yang diinginkan termasuk replika, image dari container, resouce, dan lain-lain. Hal ini memiliki keuntungan lebih cepat karena hanya menjalankan `kubectl apply -f`.
+    - Menyimpan manifest files juga cocok dengan Git karena terlihat perbedaannya dan dapat berkolaborasi.
