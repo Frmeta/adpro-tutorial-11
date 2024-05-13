@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "2"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"deployment.kubernetes.io/revision":"3"},"creationTimestamp":"2024-05-12T06:53:47Z","generation":4,"labels":{"app":"spring-petclinic-rest"},"name":"spring-petclinic-rest","namespace":"default","resourceVersion":"5519","uid":"60b2cf75-1ab6-4dfe-a433-2f53c0a68814"},"spec":{"progressDeadlineSeconds":600,"replicas":4,"revisionHistoryLimit":10,"selector":{"matchLabels":{"app":"spring-petclinic-rest"}},"strategy":{"rollingUpdate":{"maxSurge":"25%","maxUnavailable":"25%"},"type":"RollingUpdate"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"spring-petclinic-rest"}},"spec":{"containers":[{"image":"docker.io/springcommunity/spring-petclinic-rest:3.0.2","imagePullPolicy":"IfNotPresent","name":"spring-petclinic-rest","resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File"}],"dnsPolicy":"ClusterFirst","restartPolicy":"Always","schedulerName":"default-scheduler","securityContext":{},"terminationGracePeriodSeconds":30}}},"status":{"availableReplicas":4,"conditions":[{"lastTransitionTime":"2024-05-12T08:00:22Z","lastUpdateTime":"2024-05-12T08:00:22Z","message":"Deployment has minimum availability.","reason":"MinimumReplicasAvailable","status":"True","type":"Available"},{"lastTransitionTime":"2024-05-12T06:53:47Z","lastUpdateTime":"2024-05-12T08:10:16Z","message":"ReplicaSet \"spring-petclinic-rest-744fbd68bc\" has successfully progressed.","reason":"NewReplicaSetAvailable","status":"True","type":"Progressing"}],"observedGeneration":4,"readyReplicas":4,"replicas":4,"updatedReplicas":4}}
+  creationTimestamp: "2024-05-12T08:36:44Z"
+  generation: 2
+  labels:
+    app: spring-petclinic-rest
+  name: spring-petclinic-rest
+  namespace: default
+  resourceVersion: "2417"
+  uid: 2d296faf-fdc4-4fe5-83d0-b3e5d82505a8
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 4
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: spring-petclinic-rest
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: spring-petclinic-rest
+    spec:
+      containers:
+      - image: docker.io/springcommunity/spring-petclinic-rest:3.2.1
+        imagePullPolicy: IfNotPresent
+        name: spring-petclinic-rest
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 4
+  conditions:
+  - lastTransitionTime: "2024-05-12T08:44:20Z"
+    lastUpdateTime: "2024-05-12T08:44:20Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2024-05-12T10:43:04Z"
+    lastUpdateTime: "2024-05-12T10:43:42Z"
+    message: ReplicaSet "spring-petclinic-rest-54f476f68" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 2
+  readyReplicas: 4
+  replicas: 4
+  updatedReplicas: 4
